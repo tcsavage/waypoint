@@ -1,0 +1,114 @@
+﻿<phone:PhoneApplicationPage
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+	xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+	xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:Microsoft_Phone_Controls_Maps="clr-namespace:Microsoft.Phone.Controls.Maps;assembly=Microsoft.Phone.Controls.Maps"
+	xmlns:System_Globalization="clr-namespace:System.Globalization;assembly=mscorlib"
+	xmlns:Microsoft_Phone_Controls_Maps_Overlays="clr-namespace:Microsoft.Phone.Controls.Maps.Overlays;assembly=Microsoft.Phone.Controls.Maps"
+	xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+	xmlns:my="clr-namespace:WPSailing" xmlns:es="clr-namespace:Microsoft.Expression.Shapes;assembly=Microsoft.Expression.Drawing" xmlns:em="clr-namespace:Microsoft.Expression.Media;assembly=Microsoft.Expression.Drawing"
+	mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696" 
+	x:Class="WPSailing.MainPage"
+	d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}"
+	FontFamily="{StaticResource PhoneFontFamilyNormal}"
+	FontSize="{StaticResource PhoneFontSizeNormal}"
+	Foreground="{StaticResource PhoneForegroundBrush}"
+	SupportedOrientations="Portrait" Orientation="Portrait"
+	shell:SystemTray.IsVisible="True" x:Name="mainPage">
+
+	<phone:PhoneApplicationPage.Resources>
+		<CollectionViewSource x:Key="FilteredWaypointList"/>
+	</phone:PhoneApplicationPage.Resources>
+
+	<toolkit:TransitionService.NavigationInTransition>
+		<toolkit:NavigationInTransition>
+			<toolkit:NavigationInTransition.Backward>
+				<toolkit:TurnstileTransition Mode="BackwardIn"/>
+			</toolkit:NavigationInTransition.Backward>
+			<toolkit:NavigationInTransition.Forward>
+				<toolkit:TurnstileTransition Mode="ForwardIn"/>
+			</toolkit:NavigationInTransition.Forward>
+		</toolkit:NavigationInTransition>
+	</toolkit:TransitionService.NavigationInTransition>
+	<toolkit:TransitionService.NavigationOutTransition>
+		<toolkit:NavigationOutTransition>
+			<toolkit:NavigationOutTransition.Backward>
+				<toolkit:TurnstileTransition Mode="BackwardOut"/>
+			</toolkit:NavigationOutTransition.Backward>
+			<toolkit:NavigationOutTransition.Forward>
+				<toolkit:TurnstileTransition Mode="ForwardOut"/>
+			</toolkit:NavigationOutTransition.Forward>
+		</toolkit:NavigationOutTransition>
+	</toolkit:TransitionService.NavigationOutTransition>
+	
+	<phone:PhoneApplicationPage.ApplicationBar>
+		<shell:ApplicationBar IsVisible="True" Opacity="1" >
+			<shell:ApplicationBar.MenuItems>
+				<shell:ApplicationBarMenuItem x:Name="mnuManageTags" Text="Manage Tags" Click="mnuManageTags_Click" />
+				<shell:ApplicationBarMenuItem x:Name="mnuCallibrateCompass" Text="Calibrate Compass" Click="mnuCallibrateCompass_Click" />
+			</shell:ApplicationBar.MenuItems>
+			<shell:ApplicationBarIconButton x:Name="btnAddWaypoint" IconUri="/icons/appbar.add.rest.png" IsEnabled="True" Text="New Waypt" Click="btnAddWaypoint_Click"/>
+			<shell:ApplicationBarIconButton x:Name="btnFilter" IconUri="/icons/filter.png" IsEnabled="True" Text="Set Filter" Click="btnFilter_Click"/>
+			<shell:ApplicationBarIconButton x:Name="btnSettings" IconUri="/icons/appbar.feature.settings.rest.png" IsEnabled="True" Text="Settings" Click="btnSettings_Click"/>
+			<shell:ApplicationBarIconButton x:Name="btnMob" IconUri="/icons/mob.png" IsEnabled="True" Text="MOB"/>
+		</shell:ApplicationBar>
+	</phone:PhoneApplicationPage.ApplicationBar>
+
+	<!--LayoutRoot is the root grid where all page content is placed-->
+	<Grid x:Name="LayoutRoot" Background="Transparent">
+		<!--Pivot Control-->
+		<Path Stretch="Fill" Fill="{StaticResource PhoneAccentBrush}" Data="F1 M 708.944,103.787L 705.585,131.112L 714.041,139.992L 714.041,62.3402L 710.742,89.1716C 686.831,91.1597 667.786,111.303 666.142,136.466L 680.02,134.585C 682.243,118.834 694.004,106.358 708.944,103.787 Z M 719.131,176.448L 722.521,148.888L 714.072,140.016L 788.06,140.016L 763.147,136.633C 761.547,110.969 741.868,90.4919 717.333,89.0804L 719.123,103.605C 734.692,105.69 747.061,118.508 749.284,134.76L 722.521,131.135L 714.064,140.008L 714.056,140.008L 640.06,140.008L 666.142,143.541C 667.771,168.728 686.831,188.9 710.765,190.881L 708.967,176.267C 694.004,173.71 682.235,161.197 680.012,145.415L 705.601,148.888L 714.056,140.008L 714.056,217.66L 717.341,190.964C 741.874,189.553 761.555,169.062 763.147,143.39L 749.284,145.263C 747.061,161.531 734.7,174.355 719.131,176.448 Z " Height="29.945" Margin="110.399,17.472,0,0" UseLayoutRounding="False" VerticalAlignment="Top" HorizontalAlignment="Left" Width="28.534"/>
+				<!--Pivot Control-->
+		<controls:Pivot x:Name="appPivot" Title="waypoint">
+			<!--Pivot item one-->
+			<controls:PivotItem x:Name="piLocation" Header="location">
+				<Grid>
+					<TextBlock Height="35" Margin="8,0" TextWrapping="Wrap" Text="{Binding Location.LatLong}" VerticalAlignment="Top" FontSize="24"/>
+					<TextBlock Height="72" Margin="8,35,199,0" TextWrapping="Wrap" Text="{Binding Location.SpeedString}" VerticalAlignment="Top" FontSize="48"/>
+					<TextBlock Height="72" Margin="0,35,8,0" TextWrapping="Wrap" Text="{Binding Location.CourseString}" VerticalAlignment="Top" HorizontalAlignment="Right" Width="187" FontSize="48" TextAlignment="Right"/>
+					<my:CompassWithPointer Margin="28,0,28,8" VerticalAlignment="Bottom" Height="400" Width="400" Bearing="{Binding Location.Bearing}" PointerBearing="{Binding ActiveWaypoint.BearingRelCompass}" HorizontalAlignment="Center" PointerOpacity="{Binding Path=ActiveWaypointOpacity}" />
+				</Grid>
+			</controls:PivotItem>
+
+			<!--Pivot item two-->
+			<controls:PivotItem x:Name="piWaypoints" Header="waypoints">
+				<!--Triple line list no text wrapping-->
+				<ListBox x:Name="waypointListBox" ItemsSource="{Binding Source={StaticResource FilteredWaypointList}}" Margin="0,0,-12,0" Height="535">
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<StackPanel Margin="0,0,0,17">
+								<toolkit:ContextMenuService.ContextMenu>
+									<toolkit:ContextMenu>
+										<toolkit:MenuItem Header="set active" Tag="{Binding}" Click="cxtWaypoint_TapAndHold" />
+										<toolkit:MenuItem Header="edit details" Tag="{Binding}" Click="cxtWaypoint_TapAndHold" />
+										<toolkit:MenuItem Header="edit tags" Tag="{Binding}" Click="cxtWaypoint_TapAndHold" />
+									</toolkit:ContextMenu>
+								</toolkit:ContextMenuService.ContextMenu>
+								<TextBlock Text="{Binding Name}" TextWrapping="NoWrap" Margin="12,0,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+								<TextBlock Text="{Binding LatLong}" TextWrapping="NoWrap" Margin="12,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+								<TextBlock Text="{Binding RangeAndBearing}" TextWrapping="NoWrap" Margin="12,-6,0,0" Style="{StaticResource PhoneTextAccentStyle}"/>
+							</StackPanel>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+			</controls:PivotItem>
+			<controls:PivotItem x:Name="piMap" Header="map">
+				<Microsoft_Phone_Controls_Maps:Map x:Name="map" ZoomLevel="{Binding Zoom, Mode=TwoWay}" CopyrightVisibility="Collapsed" LogoVisibility="Collapsed" CredentialsProvider="{Binding CredentialsProvider}">
+					<Microsoft_Phone_Controls_Maps:MapItemsControl ItemsSource="{Binding Source={StaticResource FilteredWaypointList}}" x:Name="mapItems">
+						<Microsoft_Phone_Controls_Maps:MapItemsControl.ItemTemplate>
+							<DataTemplate>
+								<Microsoft_Phone_Controls_Maps:Pushpin Content="{Binding Name}" Location="{Binding DevGeoCoordinate}" />
+							</DataTemplate>
+						</Microsoft_Phone_Controls_Maps:MapItemsControl.ItemTemplate>
+					</Microsoft_Phone_Controls_Maps:MapItemsControl>
+					 <Button x:Name="btnMapZoomIn" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="56" Margin="8,180,0,0" Click="btnMapZoomIn_Click" Style="{StaticResource ButtonZoomInStyle}" />
+					 <Button x:Name="btnMapZoomOut" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="56" Margin="8,260,0,0" Click="btnMapZoomOut_Click" Style="{StaticResource ButtonZoomOutStyle}" />
+				</Microsoft_Phone_Controls_Maps:Map>
+			</controls:PivotItem>
+		</controls:Pivot>
+	</Grid>
+</phone:PhoneApplicationPage>

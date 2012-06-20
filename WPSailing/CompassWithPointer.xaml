@@ -1,0 +1,140 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Name="userControl"
+	mc:Ignorable="d"
+	x:Class="WPSailing.CompassWithPointer"
+	d:DesignWidth="480" d:DesignHeight="800" Width="400" Height="400">
+
+	<Grid x:Name="LayoutRoot" Background="Transparent">
+		<Canvas x:Name="canBase" Margin="0,0,8,8" RenderTransformOrigin="0.5,0.5">
+			<Canvas.RenderTransform>
+				<CompositeTransform Rotation="{Binding Bearing, ElementName=userControl}"/>
+			</Canvas.RenderTransform>
+			<Ellipse Stretch="Fill" Fill="#FFADADAD" Height="383" Canvas.Left="9" Canvas.Top="9" Width="383"/>
+			<Ellipse Stretch="Fill" Fill="#FF6A6A6A" Height="376" Canvas.Left="12" Canvas.Top="12" Width="376"/>
+			<Ellipse Stretch="Fill" Height="367" Canvas.Left="17" Canvas.Top="17" Width="367">
+				<Ellipse.Fill>
+					<RadialGradientBrush RadiusX="0.5" RadiusY="0.5" Center="0.5,0.5" GradientOrigin="0.5,0.5">
+						<RadialGradientBrush.RelativeTransform>
+							<TransformGroup/>
+						</RadialGradientBrush.RelativeTransform>
+						<GradientStop Color="#FF3B3B3B" Offset="0.00862069"/>
+						<GradientStop Color="#FF272727" Offset="1"/>
+					</RadialGradientBrush>
+				</Ellipse.Fill>
+			</Ellipse>
+			<Viewbox Height="353" Canvas.Left="21" Canvas.Top="24" Width="358">
+				<Canvas Width="357.728" Height="352.522">
+					<Path Width="4.57494" Height="18.8438" Canvas.Left="205.993" Canvas.Top="6.10352e-005" Stretch="Fill" Fill="#FF5C5C5C" Data="F1 M 207.285,18.8438L 205.993,18.6166L 209.274,6.10352e-005L 210.567,0.228333L 207.285,18.8438 Z "/>
+					<Path Width="4.57385" Height="18.8416" Canvas.Left="147.163" Canvas.Top="333.68" Stretch="Fill" Fill="#FF5C5C5C" Data="F1 M 148.454,352.522L 147.163,352.293L 150.444,333.68L 151.737,333.909L 148.454,352.522 Z "/>
+					<Path Width="4.57596" Height="18.8427" Canvas.Left="147.156" Canvas.Top="0.00219727" Stretch="Fill" Fill="#FF5C5C5C" Data="F1 M 151.732,18.6176L 150.439,18.8448L 147.156,0.230438L 148.448,0.00219727L 151.732,18.6176 Z "/>
+					<Path Width="4.57599" Height="18.8416" Canvas.Left="205.998" Canvas.Top="333.679" Stretch="Fill" Fill="#FF5C5C5C" Data="F1 M 210.574,352.292L 209.279,352.521L 205.998,333.908L 207.291,333.679L 210.574,352.292 Z "/>
+					<Path Width="10.5867" Height="17.0272" Canvas.Left="88.8629" Canvas.Top="21.0337" Stretch="Fill" Fill="#FF5C5C5C" Data="F1 M 99.4496,37.4038L 98.3125,38.0609L 88.8629,21.6918L 90,21.0337L 99.4496,37.4038 Z "/>
+					<Path Width="10.5888" Height="17.0251" Canvas.Left="258.278" Canvas.Top="314.463" Stretch="Fill" Fill="#FF5C5C5C" Data="F1 M 268.867,330.832L 267.729,331.488L 258.278,315.121L 259.418,314.463L 268.867,330.832 Z "/>
+					<Path Width="15.3237" Height="13.1552" Canvas.Left="41.424" Canvas.Top="60.7904" Stretch="Fill" Fill="#FF5C5C5C" Data="F1 M 56.7477,72.9398L 55.9029,73.9456L 41.424,61.7963L 42.2677,60.7904L 56.7477,72.9398 Z "/>
+					<Path Width="15.3248" Height="13.1563" Canvas.Left="300.981" Canvas.Top="278.578" Stretch="Fill" Fill="#FF5C5C5C" Data="F1 M 316.306,290.726L 315.461,291.734L 300.981,279.584L 301.827,278.578L 316.306,290.726 Z "/>
+					<Path Width="18.2112" Height="7.69919" Canvas.Left="10.5621" Canvas.Top="114.473" Stretch="Fill" Fill="#FF5C5C5C" Data="F1 M 28.7733,120.938L 28.3243,122.172L 10.5621,115.707L 11.0112,114.473L 28.7733,120.938 Z "/>
+					<Path Width="18.2102" Height="7.70132" Canvas.Left="328.956" Canvas.Top="230.35" Stretch="Fill" Fill="#FF5C5C5C" Data="F1 M 347.166,236.817L 346.716,238.051L 328.956,231.587L 329.405,230.35L 347.166,236.817 Z "/>
+					<Path Width="18.9024" Height="1.31305" Canvas.Left="-3.8147e-006" Canvas.Top="175.609" Stretch="Fill" Fill="#FF5C5C5C" Data="F1 M 18.9024,175.609L 18.9024,176.922L 0.00107193,176.922L -3.8147e-006,175.609L 18.9024,175.609 Z "/>
+					<Path Width="18.9013" Height="1.3152" Canvas.Left="338.827" Canvas.Top="175.602" Stretch="Fill" Fill="#FF5C5C5C" Data="F1 M 357.728,175.602L 357.728,176.917L 338.828,176.916L 338.827,175.602L 357.728,175.602 Z "/>
+					<Path Width="18.2112" Height="7.69814" Canvas.Left="10.5643" Canvas.Top="230.357" Stretch="Fill" Fill="#FF5C5C5C" Data="F1 M 28.3264,230.357L 28.7755,231.593L 11.0144,238.056L 10.5643,236.823L 28.3264,230.357 Z "/>
+					<Path Width="18.2122" Height="7.69812" Canvas.Left="328.953" Canvas.Top="114.467" Stretch="Fill" Fill="#FF5C5C5C" Data="F1 M 346.714,114.467L 347.165,115.702L 329.405,122.165L 328.953,120.931L 346.714,114.467 Z "/>
+					<Path Width="15.3259" Height="13.1563" Canvas.Left="41.4261" Canvas.Top="278.582" Stretch="Fill" Fill="#FF5C5C5C" Data="F1 M 55.9072,278.582L 56.752,279.589L 42.2709,291.739L 41.4261,290.732L 55.9072,278.582 Z "/>
+					<Path Width="15.3269" Height="13.1541" Canvas.Left="300.977" Canvas.Top="60.7862" Stretch="Fill" Fill="#FF5C5C5C" Data="F1 M 315.457,60.7862L 316.304,61.7921L 301.824,73.9403L 300.977,72.9355L 315.457,60.7862 Z "/>
+					<Path Width="10.5877" Height="17.0262" Canvas.Left="88.8672" Canvas.Top="314.465" Stretch="Fill" Fill="#FF5C5C5C" Data="F1 M 98.3168,314.465L 99.4549,315.124L 90.0042,331.491L 88.8672,330.835L 98.3168,314.465 Z "/>
+					<Path Width="10.5931" Height="17.0251" Canvas.Left="258.272" Canvas.Top="21.0326" Stretch="Fill" Fill="#FF5C5C5C" Data="F1 M 267.724,21.0326L 268.865,21.6897L 259.412,38.0577L 258.272,37.4017L 267.724,21.0326 Z "/>
+				</Canvas>
+			</Viewbox>
+			<Viewbox Height="358" Canvas.Left="24" Canvas.Top="21" Width="353">
+				<Canvas Width="352.522" Height="357.727">
+					<Rectangle Width="1.30457" Height="24.7424" Canvas.Left="175.6" Canvas.Top="-3.05176e-005" Stretch="Fill" Fill="{StaticResource PhoneAccentBrush}"/>
+					<Rectangle Width="1.14879" Height="21.8144" Canvas.Left="175.775" Canvas.Top="335.912" Stretch="Fill" Fill="{StaticResource PhoneAccentBrush}"/>
+					<Path Width="9.68852" Height="23.6949" Canvas.Left="114.464" Canvas.Top="10.5675" Stretch="Fill" Fill="{StaticResource PhoneAccentBrush}" Data="F1 M 124.153,33.8165L 122.928,34.2624L 114.464,11.0133L 115.69,10.5675L 124.153,33.8165 Z "/>
+					<Path Width="8.5408" Height="20.8928" Canvas.Left="229.517" Canvas.Top="326.213" Stretch="Fill" Fill="{StaticResource PhoneAccentBrush}" Data="F1 M 238.058,346.712L 236.978,347.106L 229.517,326.607L 230.596,326.213L 238.058,346.712 Z "/>
+					<Path Width="16.9024" Height="19.792" Canvas.Left="60.7829" Canvas.Top="41.4325" Stretch="Fill" Fill="{StaticResource PhoneAccentBrush}" Data="F1 M 77.6853,60.3861L 76.6859,61.2245L 60.7829,42.272L 61.7824,41.4325L 77.6853,60.3861 Z "/>
+					<Path Width="14.9046" Height="17.4507" Canvas.Left="276.836" Canvas.Top="298.743" Stretch="Fill" Fill="{StaticResource PhoneAccentBrush}" Data="F1 M 291.741,315.456L 290.86,316.194L 276.836,299.483L 277.715,298.743L 291.741,315.456 Z "/>
+					<Path Width="22.0789" Height="13.5008" Canvas.Left="21.0304" Canvas.Top="88.8746" Stretch="Fill" Fill="{StaticResource PhoneAccentBrush}" Data="F1 M 43.1093,101.246L 42.4576,102.375L 21.0304,90.0053L 21.6832,88.8746L 43.1093,101.246 Z "/>
+					<Path Width="19.4688" Height="11.9029" Canvas.Left="312.023" Canvas.Top="256.813" Stretch="Fill" Fill="{StaticResource PhoneAccentBrush}" Data="F1 M 331.492,267.723L 330.916,268.716L 312.023,257.808L 312.599,256.813L 331.492,267.723 Z "/>
+					<Path Width="24.5931" Height="5.58186" Canvas.Left="-1.90735e-006" Canvas.Top="147.171" Stretch="Fill" Fill="{StaticResource PhoneAccentBrush}" Data="F1 M 24.5931,151.468L 24.3669,152.753L -1.90735e-006,148.456L 0.227196,147.171L 24.5931,151.468 Z "/>
+					<Path Width="21.6832" Height="4.91838" Canvas.Left="330.838" Canvas.Top="205.483" Stretch="Fill" Fill="{StaticResource PhoneAccentBrush}" Data="F1 M 352.522,209.27L 352.322,210.401L 330.838,206.614L 331.039,205.483L 352.522,209.27 Z "/>
+					<Path Width="24.5909" Height="5.58186" Canvas.Left="0.00426292" Canvas.Top="204.993" Stretch="Fill" Fill="{StaticResource PhoneAccentBrush}" Data="F1 M 24.3701,204.993L 24.5952,206.278L 0.231459,210.575L 0.00426292,209.288L 24.3701,204.993 Z "/>
+					<Path Width="21.6843" Height="4.91948" Canvas.Left="330.807" Canvas.Top="147.153" Stretch="Fill" Fill="{StaticResource PhoneAccentBrush}" Data="F1 M 352.291,147.153L 352.492,148.284L 331.007,152.072L 330.807,150.941L 352.291,147.153 Z "/>
+					<Path Width="22.0789" Height="13.5008" Canvas.Left="21.04" Canvas.Top="255.367" Stretch="Fill" Fill="{StaticResource PhoneAccentBrush}" Data="F1 M 42.4661,255.367L 43.1189,256.498L 21.6917,268.868L 21.04,267.738L 42.4661,255.367 Z "/>
+					<Path Width="19.4667" Height="11.9029" Canvas.Left="311.938" Canvas.Top="88.8597" Stretch="Fill" Fill="{StaticResource PhoneAccentBrush}" Data="F1 M 330.83,88.8597L 331.405,89.8539L 312.512,100.763L 311.938,99.7664L 330.83,88.8597 Z "/>
+					<Path Width="16.9035" Height="19.7931" Canvas.Left="60.7979" Canvas.Top="296.514" Stretch="Fill" Fill="{StaticResource PhoneAccentBrush}" Data="F1 M 76.7019,296.514L 77.7013,297.354L 61.7973,316.307L 60.7979,315.468L 76.7019,296.514 Z "/>
+					<Path Width="14.9024" Height="17.4496" Canvas.Left="276.703" Canvas.Top="41.4218" Stretch="Fill" Fill="{StaticResource PhoneAccentBrush}" Data="F1 M 290.725,41.4218L 291.605,42.1589L 277.583,58.8715L 276.703,58.1322L 290.725,41.4218 Z "/>
+					<Path Width="9.68852" Height="23.696" Canvas.Left="114.482" Canvas.Top="323.471" Stretch="Fill" Fill="{StaticResource PhoneAccentBrush}" Data="F1 M 122.944,323.471L 124.171,323.917L 115.71,347.167L 114.482,346.72L 122.944,323.471 Z "/>
+					<Path Width="8.54185" Height="20.8928" Canvas.Left="229.353" Canvas.Top="10.5621" Stretch="Fill" Fill="{StaticResource PhoneAccentBrush}" Data="F1 M 236.816,10.5621L 237.894,10.9536L 230.432,31.4549L 229.353,31.0603L 236.816,10.5621 Z "/>
+				</Canvas>
+			</Viewbox>
+			<Viewbox Height="226" Canvas.Left="87" Canvas.Top="87" Width="226">
+				<Canvas Width="226.031" Height="226.03">
+					<Path Width="9.82184" Height="110.017" Canvas.Left="103.999" Canvas.Top="2.99731" Stretch="Fill" Fill="#FF666666" Data="F1 M 113.821,2.99731L 104.237,103.846L 103.999,103.865L 113.015,113.014L 113.821,2.99731 Z "/>
+					<Path Width="109.994" Height="9.82291" Canvas.Left="113.015" Canvas.Top="103.998" Stretch="Fill" Fill="#FF666666" Data="F1 M 113.015,113.015L 223.009,113.821L 122.185,104.238L 122.165,103.998L 113.015,113.015 Z "/>
+					<Path Width="9.14989" Height="113.015" Canvas.Left="113.015" Canvas.Top="0" Stretch="Fill" Fill="#FFCACACA" Data="F1 M 113.015,113.015L 122.165,103.998L 114.106,0L 113.821,2.99731L 113.015,113.014L 113.015,113.015 Z "/>
+					<Path Width="113.015" Height="9.14987" Canvas.Left="7.62939e-006" Canvas.Top="103.866" Stretch="Fill" Fill="#FFCACACA" Data="F1 M 113.015,113.014L 103.999,103.866L 7.62939e-006,111.925L 3.00373,112.21L 113.015,113.015L 113.015,113.014 Z "/>
+					<Path Width="9.82399" Height="109.998" Canvas.Left="112.209" Canvas.Top="113.015" Stretch="Fill" Fill="#FF666666" Data="F1 M 113.015,113.015L 112.209,223.013L 121.793,122.185L 122.033,122.165L 113.015,113.015 Z "/>
+					<Path Width="113.016" Height="9.14987" Canvas.Left="113.015" Canvas.Top="113.015" Stretch="Fill" Fill="#FFCACACA" Data="F1 M 223.009,113.821L 113.015,113.015L 122.033,122.165L 226.031,114.107L 223.009,113.821 Z "/>
+					<Path Width="9.15089" Height="113.014" Canvas.Left="103.865" Canvas.Top="113.015" Stretch="Fill" Fill="#FFCACACA" Data="F1 M 103.865,122.033L 111.924,226.03L 112.209,223.013L 113.015,113.015L 103.865,122.033 Z "/>
+					<Path Width="110.013" Height="9.82295" Canvas.Left="3.00373" Canvas.Top="112.21" Stretch="Fill" Fill="#FF666666" Data="F1 M 3.00373,112.21L 103.845,121.792L 103.865,122.033L 113.017,113.015L 3.00373,112.21 Z "/>
+					<Path Width="46.9664" Height="47.6587" Canvas.Left="66.0491" Canvas.Top="65.3557" Stretch="Fill" Fill="#FF666666" Data="F1 M 66.0491,65.3557L 98.2272,104.292L 113.015,113.014L 66.0491,65.3557 Z "/>
+					<Path Width="47.6491" Height="46.9557" Canvas.Left="113.015" Canvas.Top="66.0597" Stretch="Fill" Fill="#FF666666" Data="F1 M 113.015,113.015L 160.665,66.0597L 121.689,98.2699L 113.015,113.015 Z "/>
+					<Path Width="48.1333" Height="49.0709" Canvas.Left="64.8821" Canvas.Top="63.9445" Stretch="Fill" Fill="#FFCACACA" Data="F1 M 113.015,113.015L 104.754,98.08L 64.8821,63.9445L 66.0491,65.3557L 113.015,113.014L 113.015,113.015 Z "/>
+					<Path Width="49.0709" Height="48.1333" Canvas.Left="63.9445" Canvas.Top="113.014" Stretch="Fill" Fill="#FFCACACA" Data="F1 M 113.015,113.014L 98.1184,121.231L 63.9445,161.148L 65.3589,159.979L 113.015,113.015L 113.015,113.014 Z "/>
+					<Path Width="46.9579" Height="47.6512" Canvas.Left="113.015" Canvas.Top="113.015" Stretch="Fill" Fill="#FF666666" Data="F1 M 113.015,113.015L 159.973,160.667L 127.765,121.693L 113.015,113.015 Z "/>
+					<Path Width="49.072" Height="48.1323" Canvas.Left="113.015" Canvas.Top="64.8821" Stretch="Fill" Fill="#FFCACACA" Data="F1 M 160.665,66.0587L 113.015,113.014L 127.936,104.77L 162.087,64.8821L 160.665,66.0587 Z "/>
+					<Path Width="48.1323" Height="49.072" Canvas.Left="113.015" Canvas.Top="113.015" Stretch="Fill" Fill="#FFCACACA" Data="F1 M 121.228,127.909L 161.148,162.087L 159.973,160.667L 113.015,113.015L 121.228,127.909 Z "/>
+					<Path Width="47.6576" Height="46.9632" Canvas.Left="65.3589" Canvas.Top="113.015" Stretch="Fill" Fill="#FF666666" Data="F1 M 65.3589,159.979L 104.374,127.734L 113.017,113.015L 65.3589,159.979 Z "/>
+				</Canvas>
+			</Viewbox>
+			<TextBlock TextAlignment="Left" FontFamily="Segoe WP SemiLight" FontSize="28.8"><TextBlock.RenderTransform>
+					<TransformGroup>
+						<MatrixTransform Matrix="1.33333,0,0,1.33333,186.014,28.163"/>
+					</TransformGroup>
+				</TextBlock.RenderTransform><Run Text="N" Foreground="#FFFFFFFF"/></TextBlock>
+			<TextBlock TextAlignment="Center" FontFamily="Segoe WP SemiLight" FontSize="28.8"><TextBlock.RenderTransform>
+					<TransformGroup>
+						<MatrixTransform Matrix="1.33333,0,0,1.33333,192.128,308.163"/>
+					</TransformGroup>
+				</TextBlock.RenderTransform><Run Text="S" Foreground="#FFFFFFFF"/></TextBlock>
+			<TextBlock TextAlignment="Center" FontFamily="Segoe WP SemiLight" FontSize="28.8"><TextBlock.RenderTransform>
+					<TransformGroup>
+						<MatrixTransform Matrix="1.33333,0,0,1.33333,46.897,172.163"/>
+					</TransformGroup>
+				</TextBlock.RenderTransform><Run Text="W" Foreground="#FFFFFFFF"/></TextBlock>
+			<TextBlock TextAlignment="Center" FontFamily="Segoe WP SemiLight" FontSize="28.8"><TextBlock.RenderTransform>
+					<TransformGroup>
+						<MatrixTransform Matrix="1.33333,0,0,1.33333,337.058,172.163"/>
+					</TransformGroup>
+				</TextBlock.RenderTransform><Run Text="E" Foreground="#FFFFFFFF"/></TextBlock>
+			<TextBlock TextAlignment="Center" FontFamily="Segoe WP SemiLight" FontSize="14.4"><TextBlock.RenderTransform>
+					<TransformGroup>
+						<MatrixTransform Matrix="1.33333,0,0,1.33333,113.175,120.803"/>
+					</TransformGroup>
+				</TextBlock.RenderTransform><Run Text="NW" Foreground="#FFFFFFFF"/></TextBlock>
+			<TextBlock TextAlignment="Center" FontFamily="Segoe WP SemiLight" FontSize="14.4"><TextBlock.RenderTransform>
+					<TransformGroup>
+						<MatrixTransform Matrix="1.33333,0,0,1.33333,252.828,122.082"/>
+					</TransformGroup>
+				</TextBlock.RenderTransform><Run Text="NE" Foreground="#FFFFFFFF"/></TextBlock>
+			<TextBlock TextAlignment="Center" FontFamily="Segoe WP SemiLight" FontSize="14.4"><TextBlock.RenderTransform>
+					<TransformGroup>
+						<MatrixTransform Matrix="1.33333,0,0,1.33333,122.375,250.082"/>
+					</TransformGroup>
+				</TextBlock.RenderTransform><Run Text="SW" Foreground="#FFFFFFFF"/></TextBlock>
+			<TextBlock TextAlignment="Center" FontFamily="Segoe WP SemiLight" FontSize="14.4"><TextBlock.RenderTransform>
+					<TransformGroup>
+						<MatrixTransform Matrix="1.33333,0,0,1.33333,254.677,250.082"/>
+					</TransformGroup>
+				</TextBlock.RenderTransform><Run Text="SE" Foreground="#FFFFFFFF"/></TextBlock>
+		</Canvas>
+		<Canvas x:Name="canPointer" Height="400" Width="400" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Opacity="{Binding PointerOpacity, ElementName=userControl, FallbackValue=0}">
+			<Canvas.RenderTransform>
+				<CompositeTransform Rotation="{Binding PointerBearing, ElementName=userControl}"/>
+			</Canvas.RenderTransform>
+			<Path Stretch="Fill" Fill="{StaticResource PhoneAccentBrush}" Data="F1 M 200.08,23.1057L 189.36,56.7272L 210.8,56.7272L 200.08,23.1057 Z " Height="33.621" Canvas.Left="189.36" Canvas.Top="23.106" UseLayoutRounding="False" Width="21.44" Opacity="0.845"/>
+		</Canvas>
+	</Grid>
+</UserControl>

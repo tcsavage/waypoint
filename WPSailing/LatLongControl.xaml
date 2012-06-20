@@ -1,0 +1,16 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Name="LatLongCtrl"
+	mc:Ignorable="d"
+	x:Class="WPSailing.LatLongControl"
+	d:DesignWidth="480" d:DesignHeight="72">
+
+	<Grid x:Name="LayoutRoot" Background="Transparent">
+		<TextBox x:Name="txtDegrees" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" InputScope="Number" Text="{Binding Path=Degrees, ElementName=LatLongCtrl, Mode=OneWay}" TextChanged="Degrees_OnTextChanged" />
+        <TextBox x:Name="txtMinutes" TextWrapping="Wrap" VerticalAlignment="Top" InputScope="Number" Margin="154,0,23,0" Text="{Binding Path=Minutes, ElementName=LatLongCtrl, Mode=OneWay}" TextChanged="Minutes_OnTextChanged" />
+		<TextBlock TextWrapping="Wrap" Text="°" Margin="135,8,0,8" Style="{StaticResource PhoneTextTitle2Style}" HorizontalAlignment="Left" Width="19" />
+		<TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="'" Margin="0,8" Width="23" Style="{StaticResource PhoneTextTitle2Style}"/>
+	</Grid>
+</UserControl>

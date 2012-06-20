@@ -1,0 +1,36 @@
+﻿<local:MainViewModel 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="clr-namespace:WPSailing">
+	
+	<local:MainViewModel.Location>
+		<local:LocationViewModel LatLong="50.78600°N, -1.1068°E" CourseString="31.6°" SpeedString="7.31kn" />
+	</local:MainViewModel.Location>
+	
+	<local:MainViewModel.WaypointTags>
+		<local:WaypointTagViewModel Name="Solent" />
+		<local:WaypointTagViewModel Name="Ionian" />
+		<local:WaypointTagViewModel Name="Salcombe" />
+	</local:MainViewModel.WaypointTags>
+
+	<local:MainViewModel.EditingTagList>
+		<local:WaypointTagListViewModel Name="Test 1" Set="True" />
+		<local:WaypointTagListViewModel Name="Test 2" Set="False" />
+		<local:WaypointTagListViewModel Name="Test 3" Set="False" />
+	</local:MainViewModel.EditingTagList>
+
+	<local:MainViewModel.Waypoints>
+		<local:WaypointViewModel Name="Mark 1" Latitude="50.78600" Longitude="-1.1068" LatLong="[latlong]" RangeAndBearing="[rangeandbearing]" />
+		<local:WaypointViewModel Name="Mark 2" Latitude="50.78531" Longitude="-1.10597" LatLong="[latlong]" RangeAndBearing="[rangeandbearing]" />
+		<local:WaypointViewModel Name="Mark 3" Latitude="50.78427" Longitude="-1.10526" LatLong="[latlong]" RangeAndBearing="[rangeandbearing]" />
+	</local:MainViewModel.Waypoints>
+	
+	<local:MainViewModel.EditingWaypoint>
+		<local:WaypointViewModel Name="Mark x" Latitude="50.78600" Longitude="-1.1068" LatLong="[latlong]" RangeAndBearing="[rangeandbearing]" />
+	</local:MainViewModel.EditingWaypoint>
+	
+	<local:MainViewModel.ActiveWaypoint>
+		<local:WaypointViewModel Name="Active Waypoint" Latitude="50.78600" Longitude="-1.1068" Bearing="20.12" LatLong="[latlong]" RangeAndBearing="[rangeandbearing]" />
+	</local:MainViewModel.ActiveWaypoint>
+
+</local:MainViewModel>
